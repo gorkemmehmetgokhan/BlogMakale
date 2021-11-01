@@ -1,2 +1,2 @@
 # BlogMakale
-Makale Paylaşım Bloğu
+Makale Paylaşım Bloğu (.Net Core)
