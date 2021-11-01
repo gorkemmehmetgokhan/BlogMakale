@@ -1,0 +1,29 @@
+﻿@model blogMakale.Models.KategoriModel
+
+@{
+    ViewData["Title"] = "KategoriEkle";
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="KategoriEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="KategoriAd" class="control-label"></label>
+                <input asp-for="KategoriAd" class="form-control" />
+                <span asp-validation-for="KategoriAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Listele">Listeye Geri dön</a>
+</div>
+

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<blogMakale.Models.MakaleKategoriModel>
+
+@{
+    ViewData["Title"] = "MakalelerByKategori";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Kategoriye Göre Makaleler</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Makale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kategori)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Makale.MakaleBaslik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategori.KategoriAd)
+            </td>
+            <td>
+                @Html.ActionLink("Makaleye Git", "MakaleDetay", new {  id=item.id_Makale  })         
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

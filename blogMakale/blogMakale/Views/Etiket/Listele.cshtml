@@ -1,0 +1,33 @@
+﻿@model IEnumerable<blogMakale.Models.EtiketModel>
+
+@{
+    ViewData["Title"] = "Listele";
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+<p>
+    <a asp-action="EtiketEkle">Etiket Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EtiketAd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtiketAd)
+            </td>
+            <td>
+                <a asp-action="EtiketGuncelle" asp-route-id="@item.id_Etiket" class="btn btn-primary">Güncelle</a>
+                <a asp-action="EtiketSil" asp-route-id="@item.id_Etiket" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

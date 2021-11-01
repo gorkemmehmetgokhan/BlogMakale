@@ -1,0 +1,24 @@
+﻿@model KullaniciModel
+@{
+    ViewData["Title"] = "GirisYap";
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">*@
+
+<link href="~/css/login.css" rel="stylesheet" />
+
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      
+        <!-- Login Form -->
+        <form>
+            <input type="text" id="login" class="fadeIn second" name="@Model.KullaniciAdi" placeholder="kullanıcı adı">
+            <input type="text" id="password" class="fadeIn third" name="@Model.Sifre" placeholder="şifre">
+            <input type="submit" class="fadeIn fourth" value="Giriş Yap">
+        </form>
+
+       
+    </div>
+</div>

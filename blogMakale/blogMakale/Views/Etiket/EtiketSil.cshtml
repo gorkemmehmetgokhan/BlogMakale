@@ -1,0 +1,26 @@
+﻿@model blogMakale.Models.EtiketModel
+
+@{
+    ViewData["Title"] = "EtiketSil";
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EtiketAd)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EtiketAd)
+        </dd>
+    </dl>
+    
+    <form asp-action="EtiketSil">
+        <input type="hidden" asp-for="id_Etiket" />
+        <input type="submit" value="Sil" class="btn btn-danger" />
+        <a asp-action="Listele" class="btn btn-primary">Listeye Geri Dön</a>
+    </form>
+</div>

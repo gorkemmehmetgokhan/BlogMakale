@@ -1,0 +1,15 @@
+﻿@{
+    Layout = null;
+}
+
+<!-- Etiketler -->
+
+<h5 class="card-header" style="margin-bottom:10px">Etiketler</h5>
+@foreach (var item in ViewBag.Etiketler)
+{
+    <span class="card-link" style="margin:10px;padding:5px">
+
+            <a href="~/Makale/MakalelerByEtiket/@item.id_Etiket" class="btn btn-outline-success my-2 my-sm-0"> @item.EtiketAd</a>   
+    </span>
+}
+<hr />

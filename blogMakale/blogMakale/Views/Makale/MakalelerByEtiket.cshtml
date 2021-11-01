@@ -1,0 +1,38 @@
+﻿@model IEnumerable<blogMakale.Models.MakaleEtiketModel>
+
+@{
+    ViewData["Title"] = "MakalelerByEtiket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Etikete Göre Makaleler</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Makale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Etiket)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Makale.MakaleBaslik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etiket.EtiketAd)
+            </td>
+            <td>
+                @Html.ActionLink("Makaleye Git", "MakaleDetay", new {  id=item.id_Makale  })                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,26 @@
+﻿@model blogMakale.Models.KategoriModel
+
+@{
+    ViewData["Title"] = "KategoriSil";
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+
+<h3>Silme istediğinize emin misiniz?</h3>
+<hr />
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KategoriAd)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KategoriAd)
+        </dd>
+    </dl>
+    
+    <form asp-action="KategoriSil">
+        <input type="hidden" asp-for="id_Kategori" />
+        <input type="submit" value="Sil" class="btn btn-danger" />
+        <a asp-action="Listele" class="btn btn-primary">Listeye geri dön</a>
+    </form>
+</div>

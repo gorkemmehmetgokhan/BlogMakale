@@ -1,0 +1,129 @@
+﻿@model blogMakale.ViewModel.MakaleDetayViewModel
+
+@{
+    ViewData["Title"] = "MakaleDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<!-- Title -->
+<h1 class="mt-4">@Model.Makale.MakaleBaslik</h1>
+<hr />
+<!-- Author -->
+<p class="lead">
+    Yazar:
+    <a href="#">@Model.Makale.Kullanici.AdSoyad</a>
+</p>
+
+<hr>
+
+<!-- Date/Time -->
+<form action="~/Makale/FavoriDurum" method="post">
+    <p>
+        Yayınlanma Tarihi : @Model.Makale.MakaleTarihi.ToString("dd MMM yyyy")
+
+        <input name="id_Makale" value="@Model.Makale.id_Makale" type="hidden" />
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            @if (Model.Kullanici.Favori.Where(x => x.id_Makale == Model.Makale.id_Makale).Count() > 0)
+            {
+
+                <button class="btn btn-outline-danger" style="float:right"><i class="fa fa-heart"></i> Favorilerimden Çıkar</button>
+            }
+            else
+            {
+                <button class="btn btn-outline-danger" style="float:right"><i class="fa fa-heart-o"></i> Favorilerime Ekle</button>
+            }
+        }
+
+    </p>
+</form>
+<hr>
+
+<p>Etiketler:</p>
+@foreach (var item in Model.Makale.MakaleEtiket.ToList())
+{
+    <!-- Tags -->
+    <a href="~/Makale/MakalelerByEtiket/@item.id_Etiket" style="text-decoration:none">
+        <span class="btn btn-outline-success my-2 my-sm-0"> @item.Etiket.EtiketAd</span>
+    </a>
+
+}
+
+<hr>
+
+<p>Kategoriler:</p>
+@foreach (var item in Model.Makale.MakaleKategori.ToList())
+{
+    <!-- Categories -->
+    <a href="~/Makale/MakalelerByKategori/@item.id_Kategori" style="text-decoration:none">
+        <span class="btn btn-outline-success my-2 my-sm-0">@item.Kategori.KategoriAd</span>
+    </a>
+}
+
+<hr>
+
+<!-- Article Images -->
+
+@foreach (var item in Model.Makale.MakaleFoto.ToList())
+{
+    <img class="img-fluid rounded" src="~/images/@item.FotoURL" alt="">
+}
+
+<hr>
+
+<!-- Post Content -->
+<p class="lead" style="margin-top:20px">@Model.Makale.MakaleIcerik</p>
+
+<hr>
+
+<!-- Comments Form -->
+
+@if (User.Identity.IsAuthenticated)
+{
+
+    <div class="card my-4">
+        <h5 class="card-header">Yorum Yap:</h5>
+        <div class="card-body">
+            <form method="post" action="~/Makale/MakaleYorum">
+                <input name="id_Makale" value="@Model.Makale.id_Makale" type="hidden" />
+
+                <div class="form-group">
+                    <textarea name="YorumText" class="form-control" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Yorum Yaz</button>
+            </form>
+        </div>
+    </div>
+
+}
+
+else { 
+   <span>Yorum yapmak için <a href="~/Anasayfa/Login">oturum açın</a></span>
+}
+
+<hr />
+
+<p>Yorumlar</p>
+
+@foreach (var item in Model.Makale.MakaleYorum.ToList())
+{
+    <!-- User Comment -->
+    <div class="media mb-4">
+        <img class="d-flex mr-3 rounded-circle" src="~/images/@item.Kullanici.Foto" alt="" style="width:40px;height:40px">
+        <div class="media-body">
+            <h5 class="mt-0">@item.Kullanici.AdSoyad</h5>
+
+            @item.YorumText
+        </div>
+        <p>Yorum Tarihi : @item.YorumTarihi.ToString("dd MMM yyyy")</p>
+    </div>
+    <hr />
+}
+
+
+
+
+
+

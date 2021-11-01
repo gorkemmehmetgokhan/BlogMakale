@@ -1,0 +1,37 @@
+﻿@model blogMakale.ViewModel.MakaleListeViewModel
+
+@*@model dynamic*@
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+}
+
+@if (Model != null)
+{
+
+    @foreach (var item in Model.Makale)
+    {
+      
+            <!-- Blog Post -->
+            <div class="card mb-4">
+                <img class="card-img-top" src="~/images/@Model.MakaleFoto.Where(x=>x.id_Makale == item.id_Makale).First().FotoURL" alt="Card image cap">
+                <div class="card-body">
+                    <h2 class="card-title">@item.MakaleBaslik</h2>
+                    <p>@item.MakaleIcerik</p>
+                    <a href="~/Makale/MakaleDetay/@item.id_Makale" class="btn btn-primary">Devamını Oku &rarr;</a>
+                </div>
+                <div class="card-footer text-muted">
+                    Yayınlanma Tarihi : @item.MakaleTarihi.ToString("dd MMM yyyy")
+                </div>
+            </div>
+
+    }
+
+}
+
+
+
+
+
+

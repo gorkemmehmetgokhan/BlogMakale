@@ -1,0 +1,82 @@
+﻿@model blogMakale.Models.KullaniciModel
+
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+    <link href="~/css/signup.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div id="logbox">
+                <form asp-action="SignUp" enctype="multipart/form-data">
+                    <h1>Üye Ol</h1>
+                    <input asp-for="KullaniciAdi" type="text" placeholder="Kullanıcı Adı" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass" />
+                    <input asp-for="AdSoyad" type="text" placeholder="Ad Soyad" required="required" class="input pass" />
+                    <input asp-for="Sifre" type="password" placeholder="Şifre" required="required" class="input pass" />
+                    <input asp-for="EMail" type="email" placeholder="Email adresi" class="input pass" />
+
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <input asp-for="Foto" class="form-control custom-file-input" type="file">
+                            <label class="custom-file-label">fotoğraf ekle...</label>
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Kayıt Ol" class="inputButton" />
+                    <div class="text-center">
+                        zaten hesabın var mı? <a href="~/Anasayfa/Login" id="login_id">giriş yap</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    @*<hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="SignUp">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="AdSoyad" class="control-label"></label>
+                        <input asp-for="AdSoyad" class="form-control" />
+                        <span asp-validation-for="AdSoyad" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="KullaniciAdi" class="control-label"></label>
+                        <input asp-for="KullaniciAdi" class="form-control" />
+                        <span asp-validation-for="KullaniciAdi" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EMail" class="control-label"></label>
+                        <input asp-for="EMail" class="form-control" />
+                        <span asp-validation-for="EMail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Sifre" class="control-label"></label>
+                        <input asp-for="Sifre" class="form-control" />
+                        <span asp-validation-for="Sifre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Foto" class="control-label"></label>
+                        <input asp-for="Foto" class="form-control" />
+                        <span asp-validation-for="Foto" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>*@
+

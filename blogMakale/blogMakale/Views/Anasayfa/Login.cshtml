@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+
+<link href="~/css/signup.css" rel="stylesheet" />
+
+
+<div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div id="logbox">
+            <form asp-action="Login" method="post">
+                <h1>Üye Ol</h1>
+                <input name="KullaniciAdi" type="text" placeholder="Kullanıcı Adı" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass" />
+                <input name="Sifre" type="password" placeholder="Şifre" required="required" class="input pass" />
+
+                <input type="submit" value="Giriş Yap" class="inputButton" />
+                <div class="text-center">
+                    hesabın yoksa hemen üye ol? <a href="~/Anasayfa/SignUp" id="login_id">üye ol</a>
+                </div>
+
+                <div class="text-center text-danger">
+                    @ViewData["mesaj"]
+                </div>            
+            </form>
+        </div>
+    </div>
+</div>
+

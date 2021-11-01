@@ -1,0 +1,18 @@
+﻿
+
+@using (Html.BeginForm("SiteIciArama", "Anasayfa", FormMethod.Get))
+{
+
+    <!-- Arama Motoru -->
+    <div class="card my-4">
+        <h5 class="card-header">Makale Ara</h5>
+        <div class="card-body">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Makale Ara..." required>
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="submit">Ara!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+}

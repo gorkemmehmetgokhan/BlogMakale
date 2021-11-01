@@ -1,0 +1,28 @@
+﻿@model blogMakale.ViewModel.FavoriMakaleViewModel
+@{
+    ViewData["Title"] = "Favorilerim";
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+<h1>Favorilerim</h1>
+
+
+@if (Model.Kullanici.Favori.Count() > 0)
+{
+
+    <table class="table">
+        <tbody>
+            @foreach (var item in Model.Favori)
+            {
+                <tr>
+                    <td>
+                        <a href="~/Makale/MakaleDetay/@item.id_Makale" class="btn btn-outline-success my-2 my-sm-0"> @item.Makale.MakaleBaslik </a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+

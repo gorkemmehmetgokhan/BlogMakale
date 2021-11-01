@@ -1,0 +1,21 @@
+﻿
+
+@{
+    ViewData["Title"] = "SiteIciArama";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<h1>Arama Sonucu</h1>
+
+@foreach (var item in ViewData["Makale"] as IEnumerable<blogMakale.Models.MakaleModel>)
+{
+    
+    <b>Makale:</b><a href="~/Makale/MakaleDetay/@item.id_Makale"><div>@item.MakaleBaslik</div> <hr /></a>
+        
+ }
+
+
+
+
